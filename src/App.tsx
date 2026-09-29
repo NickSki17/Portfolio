@@ -6,9 +6,11 @@ const projects = [
     image: './retail-prophet-forecast.png',
     imageFit: 'contain' as const,
     title: 'Retail Demand Forecasting',
-    description: 'An in-progress retail demand forecasting and inventory decision-support system built on the M5 Walmart dataset.',
+    description: 'An end-to-end retail demand forecasting and inventory-planning system on the M5 Walmart dataset, with regime-based routing and a live decision-support app.',
     tags: ['Python', 'LightGBM', 'Forecasting'],
     href: './projects/retail-demand-forecasting.html',
+    externalHref: 'https://m5-demand-forecastingg.streamlit.app/',
+    externalLabel: 'Live app',
   },
   {
     image: './trixpense-dashboard.webp',
