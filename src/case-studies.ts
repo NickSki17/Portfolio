@@ -138,7 +138,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     sections: [
       { title: 'Approved public scope', content: 'The portfolio may describe RF/EMI test-system design, instrumentation, Python data automation, shielding analysis, fixture and mechanism design in AutoCAD, and fabrication at a generalized level.' },
       { title: 'Test and design themes', content: 'Resume evidence supports work with anechoic test environments, antennas, VNAs, oscilloscopes, RF amplifiers, Python/Plotly workflows, and custom fixtures. These themes are intentionally summarized without private images, code, solver internals, raw data, or company-specific implementation.' },
-      { title: 'Publication boundary', content: 'The 500 Hz–6.3 GHz range is kept separate from shielding analysis. No additional frequency ranges, solver equations, absorber-performance numbers, proprietary figures, or private repository content are published.' },
+      { title: 'Publication boundary', content: 'The approved measurement range is listed as a test-system scope. Shielding analysis is described without a frequency value. No additional frequency ranges, solver equations, absorber-performance numbers, proprietary figures, or private repository content are published.' },
     ],
   },
   fsae: {
