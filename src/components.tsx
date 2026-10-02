@@ -11,6 +11,23 @@ export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
 
 export function TagList({ items }: { items: string[] }) { return <div className="tag-list">{items.map((item) => <span className="tag" key={item}>{item}</span>)}</div> }
 
-export function DetailShell({ children, title, eyebrow = 'Project', homeHref = '../index.html', backHref, backLabel }: { children: ReactNode; title: string; eyebrow?: string; homeHref?: string; backHref?: string; backLabel?: string }) {
-  return <div className="detail-shell"><header className="site-header"><a className="wordmark" href={homeHref}>NS<span>.</span></a><nav className="detail-navigation" aria-label="Page navigation">{backHref && <a className="header-contact" href={backHref}>{backLabel ?? 'Back'} <Icon name="arrow" size={15} /></a>}<a className="header-contact" href={homeHref}>Back to portfolio <Icon name="arrow" size={15} /></a></nav></header><main className="detail-main section-wrap"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{children}</main></div>
+function scrollToContactAfterImagesLoad() {
+  const target = document.getElementById('contact')
+  if (!target) return
+  const pendingImages = Array.from(document.images).filter((image) => !image.complete)
+  if (pendingImages.length === 0) return
+  const imagesLoaded = Promise.all(pendingImages.map((image) => new Promise<void>((resolve) => {
+    image.addEventListener('load', () => resolve(), { once: true })
+    image.addEventListener('error', () => resolve(), { once: true })
+  })))
+  pendingImages.forEach((image) => { image.loading = 'eager' })
+  void imagesLoaded.then(() => target.scrollIntoView({ behavior: 'smooth', block: 'end' }))
+}
+
+export function ContactLink() {
+  return <a className="header-contact" href="#contact" onClick={scrollToContactAfterImagesLoad}>Contact</a>
+}
+
+export function DetailShell({ children, title, eyebrow = 'Project', homeHref = '../index.html', backHref, backLabel, centerIntro = false }: { children: ReactNode; title: string; eyebrow?: string; homeHref?: string; backHref?: string; backLabel?: string; centerIntro?: boolean }) {
+  return <div className={`detail-shell${centerIntro ? ' detail-shell--center-intro' : ''}`}><header className="site-header"><a className="wordmark" href={homeHref}>NS<span>.</span></a><nav className="detail-navigation" aria-label="Page navigation">{backHref && <a className="header-contact" href={backHref}>{backLabel ?? 'Back'} <Icon name="arrow" size={15} /></a>}<a className="header-contact" href={homeHref}>Back to portfolio <Icon name="arrow" size={15} /></a></nav></header><main className="detail-main section-wrap"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{children}</main><footer className="detail-footer section-wrap" id="contact">nskiba@hawk.illinoistech.edu</footer></div>
 }
