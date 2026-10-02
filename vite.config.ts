@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         home: 'index.html',
         notFound: '404.html',
+        projectIndex: 'projects.html',
         fourBar: 'projects/four-bar-ev-charging-arm.html',
         hexapod: 'projects/hexapod.html',
         sustainableChair: 'projects/sustainable-chair.html',
