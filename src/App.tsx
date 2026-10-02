@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { Icon, TagList } from './components'
 
 const featuredProjects = [
-  { title: 'Four-Bar EV Charging Arm', slug: 'four-bar-ev-charging-arm', summary: 'A constrained linkage combining MATLAB kinematics, optimization, embedded control, and prototype testing.', tags: ['Mechanical design', 'MATLAB', 'Prototyping'], image: 'assets/four-bar-test-sequence.jpg', alt: 'Four-bar prototype moving through three deployment positions', mediaKind: 'photo' },
-  { title: 'FEA Topology Optimization', slug: 'topology-optimization', summary: 'A minimum-cost bracket study using ANSYS topology optimization and mesh-convergence evidence.', tags: ['ANSYS', 'FEA', 'Optimization'], image: 'assets/topology-stress.jpg', alt: 'Simulated stress contour on the topology-optimized bracket', mediaKind: 'technical' },
+  { title: 'Four-Bar EV Charging Arm', slug: 'four-bar-ev-charging-arm', summary: 'A constrained linkage combining MATLAB kinematics, optimization, embedded control, and prototype testing.', tags: ['Mechanical design', 'MATLAB', 'Prototyping'], image: 'assets/four-bar-trajectory.jpg', alt: 'Simulated end-effector trajectory for the optimized four-bar mechanism', mediaKind: 'technical' },
+  { title: 'FEA Topology Optimization', slug: 'topology-optimization', summary: 'A minimum-cost bracket study using ANSYS topology optimization and mesh convergence.', tags: ['ANSYS', 'FEA', 'Optimization'], image: 'assets/topology-stress.jpg', alt: 'Simulated stress contour on the topology-optimized bracket', mediaKind: 'technical' },
   { title: 'Bladed Disk Optimization', slug: 'bladed-disk-optimization', summary: 'A rotating-component study using cyclic-symmetry FEA and prestressed modal analysis.', tags: ['CAE', 'Rotordynamics', 'FEA'], image: 'assets/bladed-disk-radial-result.jpg', alt: 'Simulated radial tip deflection on the bladed disk', mediaKind: 'technical' },
   { title: 'Sustainable Foam-Core Chair', slug: 'sustainable-chair', summary: 'An interlocking chair developed through CAD, FEA-informed iteration, fabrication, and load trials.', tags: ['CAD', 'FEA', 'Testing'], image: 'assets/chair-before-test.jpg', alt: 'Foam-core chair prototype before the incremental load trial', mediaKind: 'photo' },
   { title: 'Bio-Inspired Hexapod', slug: 'hexapod', summary: 'A six-legged prototype using an alternating tripod gait, servo actuation, and Arduino control.', tags: ['Mechatronics', 'Embedded', 'Fabrication'], image: 'assets/hexapod-front.jpg', alt: 'Front view of the hexapod robot prototype', mediaKind: 'photo' },
@@ -16,10 +16,10 @@ const experience = [
 ]
 
 const skills = {
-  'CAD / Design': ['SolidWorks', 'Autodesk Inventor', 'AutoCAD', 'GD&T', 'Design for Manufacturing'],
+  'CAD / Design': ['SolidWorks', 'Autodesk Inventor', 'AutoCAD', 'Design for Manufacturing'],
   'Analysis / Simulation': ['ANSYS / FEA', 'MATLAB', 'Optimization', 'Structural analysis', 'Engineering modeling'],
-  'Programming / Controls': ['Python', 'MATLAB', 'Arduino / C++', 'Teensy', 'PlatformIO', 'Serial communication'],
-  'Manufacturing / Testing': ['CNC / machining', 'Laser cutting', '3D printing', 'Welding', 'Instrumentation', 'Calibration'],
+  'Programming / Embedded': ['Python', 'MATLAB', 'Arduino / C++', 'Teensy', 'PlatformIO', 'Serial communication'],
+  'Manufacturing / Testing': ['CNC / machining', 'Laser cutting', '3D printing', 'Instrumentation', 'Calibration'],
 }
 
 function App() {
@@ -44,7 +44,7 @@ function App() {
       </header>
 
       <main>
-        <section className="hero section-wrap" aria-labelledby="hero-title"><div className="hero-kicker">Mechanical systems / CAD / CAE / testing</div><h1 id="hero-title">Nicholas<br /><em>Skiba</em></h1><div className="hero-bottom"><p className="hero-lede">Mechanical Engineering / Mechanical &amp; Aerospace Engineering</p><p className="hero-copy">Mechanical engineering focused on mechanical design, simulation, robotics, and controls.</p></div></section>
+        <section className="hero section-wrap" aria-labelledby="hero-title"><div className="hero-kicker">Mechanical systems / CAD / CAE / testing</div><h1 id="hero-title">Nicholas<br /><em>Skiba</em></h1><div className="hero-bottom"><p className="hero-lede">Mechanical Engineering / Mechanical &amp; Aerospace Engineering</p><p className="hero-copy">Mechanical engineering focused on mechanical design, simulation, prototyping, and test and validation.</p></div></section>
 
         <section className="section-wrap section-block" id="experience" aria-labelledby="experience-title"><SectionHeading number="01" title="Experience" id="experience-title" /><div className="experience-list">{experience.map((item, index) => <a className="experience-row" href={`./experience/${item.slug}.html`} key={item.slug} data-reveal><span className="experience-index">0{index + 1}</span><span><strong>{item.title}</strong><small>{item.organization}</small></span><time>{item.date}</time><Icon name="arrow" size={18} /></a>)}</div></section>
 

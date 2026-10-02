@@ -5,7 +5,7 @@ import './styles.css'
 const projects = [
   { title: 'CNC Bracket Design', slug: 'cnc-bracket', summary: 'SolidWorks bracket comparison connecting static FEA, drawing release, fixturing, and Mastercam toolpath planning.', tags: ['SolidWorks', 'FEA', 'CAM'], image: '../assets/cnc-bracket-fea-comparison.jpg', alt: 'Simulated stress comparison for two CNC bracket variants' },
   { title: 'Arbor Press Design', slug: 'arbor-press', summary: 'Iterative arbor-press frame design using CAD revisions, static FEA, engineering drawings, and manufacturing planning.', tags: ['SolidWorks', 'FEA', 'Manufacturing'], image: '../assets/arbor-press-p4.jpg', alt: 'CAD render of the student-designed Arbor Press P4 revision' },
-  { title: '6-DOF Robotic Arm', slug: 'robotic-arm', summary: 'Collaborative robotics platform with Nicholas-selected contributions in diagnostics, serial testing, development tooling, ROS scaffolding, and reduced simulation.', tags: ['Embedded', 'ROS 2', 'Python'] },
+  { title: '6-DOF Robotic Arm', slug: 'robotic-arm', summary: 'Collaborative project with selected contributions by Nicholas Skiba in diagnostics, serial testing, development tooling, ROS 2 scaffolding, and reduced simulation.', tags: ['Embedded', 'ROS 2', 'Python'] },
   { title: 'Physics Surrogate + Optimization', slug: 'physics-surrogate-optimization', summary: 'Partially implemented 3-DOF mass-spring-damper and modal-analysis foundation for later surrogate optimization.', tags: ['Python', 'Dynamics', 'Optimization'] },
 ]
 
