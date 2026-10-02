@@ -18,7 +18,7 @@ function DetailPage() {
     <div className="detail-intro"><p>{study.summary}</p><div className="detail-meta"><span className={`status status--${study.status}`}>{study.status.replace('-', ' ')}</span>{study.organization && <span>{study.organization}</span>}{study.date && <span>{study.date}</span>}{study.role && <span>{study.role}</span>}</div></div>
     {study.metrics && <section className="metric-grid" aria-label="Evidence-backed metrics">{study.metrics.map((metric) => <article className="metric-card" key={metric.label}><span>{metric.label}</span><strong>{metric.value}</strong><small><b>{metric.basis}</b>{metric.note && ` — ${metric.note}`}</small></article>)}</section>}
     <div className="detail-sections">{study.sections.map((section) => <section className="detail-section" key={section.title}><h2>{section.title}</h2><p>{section.content}</p></section>)}</div>
-    {study.figures && <section className="figure-grid" aria-label="Project figures">{study.figures.map((figure) => <figure key={figure.src}><img src={figure.src} alt={figure.alt} /><figcaption>{figure.caption}</figcaption></figure>)}</section>}
+    {study.figures && <section className="figure-grid" aria-label="Project figures">{study.figures.map((figure) => <figure key={figure.src}><img src={figure.src} alt={figure.alt} loading="lazy" decoding="async" /><figcaption>{figure.caption}</figcaption></figure>)}</section>}
   </DetailShell>
 }
 

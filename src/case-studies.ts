@@ -17,7 +17,13 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Implementation and testing', content: 'The solo prototype used an Hitec HS-425BB servo, Arduino Uno, IR triggering, laser-cut MDF linkage parts, and a foam-core frame. The open-loop controller filters and debounces the IR input before commanding the servo.' },
       { title: 'Results and limits', content: 'The report supports a modeled trajectory error of ≤0.05 mm, experimental prototype accuracy of ±2 mm, and five consecutive actuation cycles without servo stalls. The report says optimized required torque stayed below the servo rating, but it does not establish the baseline and optimized values behind the resume-attested 70% reduction.' },
     ],
-    figures: [{ src: '../assets/four-bar-arduino-setup.jpg', alt: 'Arduino, IR receiver, and servo setup for the four-bar prototype', caption: 'Allowed project asset: controller and actuator setup.', kind: 'photo' }],
+    figures: [
+      { src: '../assets/four-bar-trajectory.jpg', alt: 'MATLAB end-effector trajectory plot for the optimized four-bar mechanism', caption: 'Simulated end-effector trajectory from the MATLAB optimization; the target is marked by a cross.', kind: 'plot' },
+      { src: '../assets/four-bar-free-body.jpg', alt: 'Free-body diagrams for the four-bar linkage links', caption: 'Calculated free-body diagrams used to reason about link forces and torque.', kind: 'diagram' },
+      { src: '../assets/four-bar-arduino-setup.jpg', alt: 'Arduino, IR receiver, and servo setup for the four-bar prototype', caption: 'Physical prototype controller and actuator setup.', kind: 'photo' },
+      { src: '../assets/four-bar-test-sequence.jpg', alt: 'Three photographs showing the four-bar prototype moving through retracted, extending, and charging positions', caption: 'Physical prototype sequence: retracted, extending, and charging positions.', kind: 'photo' },
+      { src: '../assets/four-bar-torque-plot.jpg', alt: 'Required servo torque plotted against input crank angle', caption: 'Simulated required servo torque versus input crank angle; the curves remain below the servo rating in the documented analysis.', kind: 'plot' },
+    ],
   },
   hexapod: {
     slug: 'hexapod', type: 'project', status: 'completed', title: 'Bio-Inspired Hexapod', date: 'December 2025', role: 'Solo project', summary: 'A six-legged prototype built around an alternating tripod gait, passive leg mechanics, and open-loop Arduino servo control.', tags: ['Mechatronics', 'Embedded', 'Fabrication'], confidentiality: 'Public project evidence',
@@ -53,6 +59,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Analysis and iteration', content: 'Autodesk Inventor CAD and preliminary FEA were used for seat and backrest loading conditions. The CAD mass estimate was corrected from an earlier 788 g estimate to 462 g after correcting the material density.' },
       { title: 'Physical observation', content: 'Incremental human loading produced cracking at 70 kg, followed by observed loading at 80 kg and 90 kg. A later 103 kg load trial showed little observed deformation. The documentation does not establish duration, instrumentation, durability, or certification.' },
     ],
+    figures: [
+      { src: '../assets/chair-before-test.jpg', alt: 'Unloaded foam-core chair prototype before the incremental human load trial', caption: 'Physical prototype before the documented incremental load trial.', kind: 'photo' },
+      { src: '../assets/chair-after-test.jpg', alt: 'Foam-core chair prototype after the incremental human load trial', caption: 'Physical prototype after the documented trial; the result is an observation, not an instrumented or certified test.', kind: 'photo' },
+      { src: '../assets/chair-fea-seat.jpg', alt: 'Simulated stress contour on the sustainable chair seat structure', caption: 'Simulated stress distribution for the documented seat loading condition.', kind: 'plot' },
+      { src: '../assets/chair-fea-back.jpg', alt: 'Simulated stress contour on the sustainable chair back structure', caption: 'Simulated stress distribution for the documented back loading condition.', kind: 'plot' },
+    ],
   },
   'topology-optimization': {
     slug: 'topology-optimization', type: 'project', status: 'completed', title: 'FEA Topology Optimization', date: '2025', role: 'Unknown', summary: 'An ANSYS Workbench study of a minimum-cost polypropylene bracket using topology optimization, reconstruction, and mesh convergence.', tags: ['ANSYS', 'FEA', 'Optimization'], confidentiality: 'Public project evidence',
@@ -66,6 +78,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Problem and method', content: 'The study evaluated a minimum-cost polypropylene bracket with ANSYS Workbench 2025 R2. The workflow included topology optimization, geometry reconstruction, and mesh-convergence verification.' },
       { title: 'Results', content: 'The report documents 185 design points, a 150 lbf total load, 0.01477 in primary deflection, 332.02 psi stress, and a reported factor of safety of 15.3. These are simulated FEA results, not physical measurements.' },
       { title: 'Scope', content: 'The public project includes the report and exported initial and optimized geometry. The original Workbench project and solver/cache files are not included, so detailed setup claims remain limited to the report.' },
+    ],
+    figures: [
+      { src: '../assets/topology-boundary.jpg', alt: 'ANSYS boundary condition setup for the topology optimization bracket', caption: 'Simulated boundary-condition setup for the documented 150 lbf total load study.', kind: 'screenshot' },
+      { src: '../assets/topology-result.jpg', alt: 'Topology optimization density distribution and reconstructed bracket geometry', caption: 'Simulated topology result and reconstructed parametric geometry.', kind: 'plot' },
+      { src: '../assets/topology-stress.jpg', alt: 'Simulated von Mises stress contour on the reconstructed topology bracket', caption: 'Simulated von Mises stress contour; the documented result is 332.02 psi with a factor of safety of 15.3.', kind: 'plot' },
+      { src: '../assets/topology-convergence.jpg', alt: 'Mesh convergence plots and final finite-element mesh for the topology bracket', caption: 'Simulated mesh-convergence study and final mesh used for verification.', kind: 'plot' },
     ],
   },
   'bladed-disk-optimization': {
@@ -81,6 +99,11 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Results', content: 'At the documented 4,500 RPM case, the report gives 16,511 psi stress, a factor of safety of 2.12, 0.014983 in radial tip deflection, and 28.27 lb modeled assembly mass.' },
       { title: 'Limitations', content: 'The 9,000 RPM reference case is a failure case and is not presented as a successful operating point. No physical test results are included.' },
     ],
+    figures: [
+      { src: '../assets/bladed-disk-geometry.jpg', alt: 'ANSYS DesignModeler geometry for the bladed-disk sector', caption: 'Simulated sector geometry representing one twenty-fourth of the full assembly.', kind: 'cad' },
+      { src: '../assets/bladed-disk-radial-result.jpg', alt: 'Simulated radial tip deflection contour at 4,500 RPM', caption: 'Simulated radial tip deflection at the documented 4,500 RPM case.', kind: 'plot' },
+      { src: '../assets/bladed-disk-9000rpm-reference.jpg', alt: 'Simulated bladed-disk stress contour for the 9,000 RPM reference case', caption: 'Simulated 9,000 RPM reference/failure case; sustained operation is explicitly not intended.', kind: 'plot' },
+    ],
   },
   'cnc-bracket': {
     slug: 'cnc-bracket', type: 'project', status: 'completed', title: 'CNC Bracket Design', date: '2025', role: 'Unknown', summary: 'A comparative P1/P2 bracket study combining SolidWorks modeling, static FEA, drawing release, fixturing documentation, and Mastercam toolpath simulation.', tags: ['SolidWorks', 'FEA', 'CAM'], confidentiality: 'Public project evidence',
@@ -94,6 +117,10 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Manufacturing planning', content: 'The documented workflow includes soft-jaw fixturing, a 3.75 × 3.00 × 1.00 in stock setup, and Mastercam Color Loop toolpath verification. These are manufacturing-planning records, not evidence that the parts were physically machined.' },
       { title: 'Results', content: 'The report gives P1/P2 maximum stresses of 482/152 MPa and minimum factors of safety of 0.571/1.81. These are simulated results.' },
     ],
+    figures: [
+      { src: '../assets/cnc-bracket-fea-comparison.jpg', alt: 'SolidWorks Simulation stress contours comparing CNC bracket P1 and P2 variants', caption: 'Simulated P1/P2 comparison for bracket variants modeled from provided blueprints; these are analysis results, not physical tests.', kind: 'plot' },
+      { src: '../assets/cnc-bracket-toolpath.jpg', alt: 'Mastercam toolpath simulation for the documented CNC bracket operation', caption: 'Mastercam toolpath simulation for the documented manufacturing workflow; physical machining is not established.', kind: 'screenshot' },
+    ],
   },
   'arbor-press': {
     slug: 'arbor-press', type: 'project', status: 'completed', title: 'Arbor Press Design', date: '2025', role: 'Unknown', summary: 'An iterative arbor-press frame study spanning CAD revisions, static FEA, engineering drawings, mold work, and Mastercam programming.', tags: ['SolidWorks', 'FEA', 'Manufacturing'], confidentiality: 'Public project evidence',
@@ -105,6 +132,10 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Design evolution', content: 'Four revisions were documented. P1 was a provided baseline; P2 was modeled as a cast-style revision; P3 was revised for machining; and P4 was designed from earlier FEA results to reinforce high-stress regions.' },
       { title: 'Analysis and manufacturing', content: 'SolidWorks static FEA used a 3-ton load, a fixed flat bottom surface, default solid meshing, and documented material selections. Native drawings, a P2 mold assembly, and Mastercam toolpath verification support the design and manufacturing-planning workflow.' },
       { title: 'Limits', content: 'The reported stress values are calculated/simulated results. The available evidence does not establish physical machining or load testing.' },
+    ],
+    figures: [
+      { src: '../assets/arbor-press-p2-p3.jpg', alt: 'CAD revision sequence showing Arbor Press P2 and P3 student-modeled designs', caption: 'Student-modeled P2/P3 revision sequence; P1 is not shown as Nicholas’s design.', kind: 'cad' },
+      { src: '../assets/arbor-press-p4.jpg', alt: 'CAD render of the student-designed Arbor Press P4 revision', caption: 'Student-designed P4 revision developed from earlier FEA results; no physical load test is claimed.', kind: 'cad' },
     ],
   },
   'robotic-arm': {
