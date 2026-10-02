@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client'
-import DetailPage from './detail-page'
+import { DetailShell } from './components'
 import './styles.css'
-import './detail-styles.css'
 
-const slug = document.body.dataset.slug ?? 'retail-demand-forecasting'
-createRoot(document.getElementById('root')!).render(<DetailPage slug={slug} />)
+const slug = window.location.pathname.split('/').pop()?.replace('.html', '') ?? 'case-study'
+const title = slug.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+
+createRoot(document.getElementById('root')!).render(<DetailShell title={title}><p className="detail-placeholder">Case-study content scaffold. Evidence-backed content will be loaded in Stage B.</p></DetailShell>)

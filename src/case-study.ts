@@ -1,0 +1,11 @@
+export type ProjectStatus = 'completed' | 'in-progress' | 'planned'
+export type MetricBasis = 'measured' | 'simulated' | 'calculated' | 'estimated' | 'requirement' | 'user-attested' | 'resume-attested' | 'planned' | 'unknown'
+export type Metric = { label: string; value: string; basis: MetricBasis; note?: string }
+export type Figure = { src: string; alt: string; caption?: string; kind?: 'photo' | 'cad' | 'plot' | 'diagram' | 'screenshot' | 'video' }
+export type CaseStudySection = { title: string; content: string }
+export type CaseStudy = { slug: string; type: 'project' | 'experience'; status: ProjectStatus; title: string; organization?: string; date?: string; summary: string; role?: string; metrics?: Metric[]; sections: CaseStudySection[]; figures?: Figure[]; tags: string[]; repository?: string; confidentiality?: string }
+
+export const caseStudySlugs = {
+  projects: ['four-bar-ev-charging-arm', 'hexapod', 'sustainable-chair', 'topology-optimization', 'bladed-disk-optimization', 'cnc-bracket', 'arbor-press', 'robotic-arm', 'physics-surrogate-optimization'],
+  experience: ['progress-rail', 'deep-coat'],
+} as const

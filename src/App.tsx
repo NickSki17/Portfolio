@@ -1,134 +1,65 @@
 import { useEffect } from 'react'
-import { Card, Icon, TagList } from './components'
+import { Icon, TagList } from './components'
 
-const projects = [
-  {
-    image: './retail-prophet-forecast.png',
-    imageFit: 'contain' as const,
-    title: 'Retail Demand Forecasting',
-    description: 'An end-to-end retail demand forecasting and inventory-planning system on the M5 Walmart dataset, with regime-based routing and a live decision-support app.',
-    tags: ['Python', 'LightGBM', 'Forecasting'],
-    href: './projects/retail-demand-forecasting.html',
-    externalHref: 'https://m5-demand-forecastingg.streamlit.app/',
-    externalLabel: 'Live app',
-  },
-  {
-    image: './trixpense-dashboard.webp',
-    title: 'TriXpense',
-    description: 'A full-stack application for tracking shared expenses, splitting bills, and making household finances easier to understand.',
-    tags: ['Python', 'Flask', 'PostgreSQL'],
-    href: './projects/roommate-expense-tracker.html',
-    externalHref: 'https://trixpense.com',
-    externalLabel: 'Live app',
-  },
-  {
-    image: './diabetes-shap-summary.svg',
-    title: 'Diabetes Classification',
-    description: 'A team-led classification study using CDC survey data, Logistic Regression, XGBoost, and SHAP interpretability.',
-    tags: ['R', 'XGBoost', 'SHAP'],
-    href: './projects/diabetes-prediction.html',
-    externalHref: 'https://github.com/ZachSkiba/CSP571-G7',
-    externalLabel: 'GitHub',
-  },
-  {
-    image: './ab-test-power-sample.png',
-    title: 'A/B Test Efficiency',
-    description: 'A causal-inference study testing whether CUPED can preserve confidence while reducing the users required for an experiment.',
-    tags: ['Python', 'CUPED', 'Causal Inference'],
-    href: './projects/ab-test-efficiency.html',
-    externalHref: 'https://github.com/ZachSkiba/A-B-Test-Efficiency',
-    externalLabel: 'GitHub',
-  },
-  {
-    image: './airline-overbooking-revenue.svg',
-    imageFit: 'contain' as const,
-    title: 'Airline Overbooking Optimization',
-    description: 'A probabilistic revenue model balancing no-show behavior, compensation costs, and long-term customer loyalty.',
-    tags: ['Python', 'Monte Carlo', 'Optimization'],
-    href: './projects/airline-overbooking.html',
-    externalHref: 'https://github.com/ZachSkiba/Airline-Overbooking',
-    externalLabel: 'GitHub',
-  },
-  {
-    image: './premier-league-goals-rank.png',
-    imageFit: 'contain' as const,
-    title: 'Exploratory Data Analysis',
-    description: 'Two notebook-based analyses: Superstore retail orders and Premier League match results, connected by a focus on cleaning, aggregation, and clear data storytelling.',
-    tags: ['Python', 'pandas', 'EDA'],
-    href: './projects/data-analysis-eda.html',
-    externalHref: 'https://github.com/ZachSkiba/Data-Analysis-Projects',
-    externalLabel: 'GitHub',
-  },
+const featuredProjects = [
+  { title: 'Four-Bar EV Charging Arm', slug: 'four-bar-ev-charging-arm', summary: 'A constrained linkage project combining MATLAB kinematics, optimization, CAD, embedded control, and prototype testing.', tags: ['Mechanical design', 'MATLAB', 'Prototyping'] },
+  { title: 'FEA Topology Optimization', slug: 'topology-optimization', summary: 'A minimum-cost bracket study using ANSYS topology and parametric optimization with mesh-convergence evidence.', tags: ['ANSYS', 'FEA', 'Optimization'] },
+  { title: 'Bladed Disk Optimization', slug: 'bladed-disk-optimization', summary: 'A rotating-component study using cyclic-symmetry FEA, parametric optimization, and prestressed modal analysis.', tags: ['CAE', 'Rotordynamics', 'FEA'] },
+  { title: 'Sustainable Foam-Core Chair', slug: 'sustainable-chair', summary: 'An interlocking chair developed through CAD, FEA-informed iteration, laser fabrication, and incremental load testing.', tags: ['CAD', 'FEA', 'Testing'] },
+  { title: 'Bio-Inspired Hexapod', slug: 'hexapod', summary: 'A six-legged prototype using an alternating tripod gait, servo actuation, MDF construction, and Arduino control.', tags: ['Mechatronics', 'Embedded', 'Fabrication'] },
 ]
 
-const coursework = ['Machine Learning', 'Regression', 'Statistics', 'Probability', 'Data Preparation and Analysis', 'Data Mining', 'Big Data Technologies', 'Database Organization', 'Time Series', 'Data Structures and Algorithms', 'Agentic AI', 'Innovation with AI']
+const experience = [
+  { title: 'Engine Controls Engineering Intern', organization: 'Progress Rail, a Caterpillar Company', date: 'May 2026 – August 2026', slug: 'progress-rail' },
+  { title: 'Engineering Intern', organization: 'Deep Coat Industries', date: 'May 2025 – August 2025; December 2025 – January 2026', slug: 'deep-coat' },
+  { title: 'Formula SAE Chassis Design', organization: 'Illinois Institute of Technology', date: 'August 2026 – present', slug: 'fsae' },
+]
 
-function SocialLinks() {
-  return (
-    <div className="social-links" aria-label="Social links">
-      <a href="https://github.com/ZachSkiba" target="_blank" rel="noreferrer" aria-label="GitHub"><Icon name="github" size={18} /></a>
-      <a href="http://www.linkedin.com/in/zachary-skiba-727490293" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Icon name="linkedin" size={18} /></a>
-      <a href="https://outlook.office.com/mail/deeplink/compose?to=zskiba%40hawk.illinoistech.edu&subject=Portfolio%20inquiry" target="_blank" rel="noreferrer" aria-label="Email Zach"><Icon name="mail" size={18} /></a>
-    </div>
-  )
+const skills = {
+  'CAD / Design': ['SolidWorks', 'Autodesk Inventor', 'AutoCAD', 'GD&T', 'Design for Manufacturing'],
+  'Analysis / Simulation': ['ANSYS / FEA', 'MATLAB', 'Optimization', 'Structural analysis', 'Engineering modeling'],
+  'Programming / Controls': ['Python', 'MATLAB', 'Arduino / C++', 'Teensy', 'PlatformIO', 'Serial communication'],
+  'Manufacturing / Testing': ['CNC / machining', 'Laser cutting', '3D printing', 'Welding', 'Instrumentation', 'Calibration'],
 }
 
 function App() {
   useEffect(() => {
     const revealItems = document.querySelectorAll<HTMLElement>('[data-reveal]')
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible')
-          observer.unobserve(entry.target)
-        }
-      })
-    }, { threshold: 0.12 })
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      }
+    }), { threshold: 0.12 })
     revealItems.forEach((item) => observer.observe(item))
     return () => observer.disconnect()
   }, [])
 
   return (
     <div className="site-shell">
-      <header className="identity section-wrap" id="top">
-        <h1>Zach Skiba</h1>
-        <p className="identity-role">Chicago, IL · MS Data Science</p>
-        <p className="identity-status">Seeking Summer 2027 Data Science &amp; Analytics Internships</p>
-        <SocialLinks />
-        <nav className="jump-links" aria-label="Page sections">
-          <a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#coursework">Coursework</a><a href="#education">Education</a><a href="#contact">Contact</a>
-        </nav>
+      <header className="site-header" id="top">
+        <a className="wordmark" href="#top">NS<span>.</span></a>
+        <nav aria-label="Primary navigation"><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a></nav>
+        <a className="header-contact" href="mailto:nskiba@hawk.illinoistech.edu">Get in touch <Icon name="arrow" size={15} /></a>
       </header>
 
-      <main className="site-main section-wrap">
-        <section className="content-section content-section--experience" id="experience">
-          <div className="section-header"><h2>Experience</h2></div>
-          <div className="card-grid experience-grid">
-            <Card eyebrow="Dexcom" title="Business Intelligence Intern" meta="May - Aug 2026" description="Proposed and built an explainable BigQuery ML retention framework, reusable SQL analysis tooling, and AI-ready datasets for two customer-insights bots." href="./experience/dexcom.html" />
-            <Card eyebrow="International Motors" title="IT Business Analyst Intern" meta="May - Aug 2025" description="Replaced manual Excel project governance with production ServiceNow dashboards, automated alerts, and cost reporting across 100+ active projects." href="./experience/it-business-analyst.html" />
-          </div>
-          <div className="card-grid experience-grid experience-grid--secondary">
-            <Card eyebrow="Triple Threat Services" title="Business Owner & Co-Founder" meta="May 2024 - Jun 2026" description="Founded a mobile car-detailing business with my brothers, helped grow it to a 40+ client base, and built TriXpense under the same brand." href="./experience/triple-threat-services.html" externalHref="https://www.triplethreatservices.com/" externalLabel="Business site" />
-            <Card eyebrow="Runnings" title="Sales Associate" meta="Jun 2021 - Aug 2023" description="Supported customers, inventory operations, store remodeling, and daily retail execution in a part-time role." href="./experience/runnings.html" />
-          </div>
-        </section>
+      <main>
+        <section className="hero section-wrap" aria-labelledby="hero-title"><div className="hero-kicker">Mechanical systems / CAD / CAE / testing</div><h1 id="hero-title">Nicholas<br /><em>Skiba</em></h1><div className="hero-bottom"><p className="hero-lede">Mechanical Engineering / Mechanical &amp; Aerospace Engineering</p><p className="hero-copy">I design, analyze, prototype, and validate mechanical systems across hardware, controls, and computational engineering.</p></div></section>
 
-        <section className="content-section content-section--projects" id="projects">
-          <div className="section-header"><h2>Projects</h2></div>
-          <div className="card-grid project-grid">{projects.map((project) => <Card key={project.title} {...project} />)}</div>
-        </section>
+        <section className="section-wrap section-block" id="experience" aria-labelledby="experience-title"><SectionHeading number="01" title="Experience" id="experience-title" /><div className="experience-list">{experience.map((item, index) => <a className="experience-row" href={`./experience/${item.slug}.html`} key={item.slug} data-reveal><span className="experience-index">0{index + 1}</span><span><strong>{item.title}</strong><small>{item.organization}</small></span><time>{item.date}</time><Icon name="arrow" size={18} /></a>)}</div></section>
 
-        <section className="content-section content-section--education education-section" id="education">
-          <div className="section-header"><h2>Education</h2></div>
-          <div className="education-block" data-reveal><div><p className="education-school">Illinois Institute of Technology</p><h3 className="education-degree">B.S. Applied Mathematics<br />M.S. Data Science</h3><p className="education-school">Minor in Computer Science | Coterminal Program</p></div><div className="education-meta"><span>August 2023 - December 2027</span><strong className="education-gpa">GPA: 3.5</strong></div></div>
-          <div className="coursework-subsection" id="coursework" data-reveal><h3>Coursework</h3><div><TagList items={coursework} className="coursework-list" /></div></div>
-        </section>
+        <section className="section-wrap section-block" id="projects" aria-labelledby="projects-title"><SectionHeading number="02" title="Selected projects" id="projects-title" /><div className="project-grid">{featuredProjects.map((project, index) => <a className={`project-card project-card--${index + 1}`} href={`./projects/${project.slug}.html`} key={project.slug} data-reveal><span className="project-number">0{index + 1}</span><div><h3>{project.title}</h3><p>{project.summary}</p><TagList items={project.tags} /></div><Icon name="arrow" size={20} /></a>)}</div></section>
 
+        <section className="section-wrap section-block split-block" id="skills" aria-labelledby="skills-title"><SectionHeading number="03" title="Skills" id="skills-title" /><div className="skills-grid">{Object.entries(skills).map(([category, items]) => <div className="skill-group" key={category} data-reveal><h3>{category}</h3><TagList items={items} /></div>)}</div></section>
+
+        <section className="section-wrap section-block education-block" id="education" aria-labelledby="education-title"><SectionHeading number="04" title="Education" id="education-title" /><div className="education-card" data-reveal><div><p className="eyebrow">Illinois Institute of Technology</p><h3>Co-Terminal B.S. Mechanical Engineering<br />/ M.S. Mechanical &amp; Aerospace Engineering</h3><p>Minor in Engineering Graphics &amp; CAD</p></div><div className="education-meta"><span>August 2023 – December 2027 expected</span><strong>B.S. GPA 3.59<br />M.S. GPA 4.00</strong><small>Dean&apos;s List · August 2023 – May 2025</small></div></div></section>
       </main>
 
-      <footer className="site-footer section-wrap" id="contact"><a className="footer-name" href="#top">Zach Skiba</a><a className="footer-email" href="https://outlook.office.com/mail/deeplink/compose?to=zskiba%40hawk.illinoistech.edu&subject=Portfolio%20inquiry" target="_blank" rel="noreferrer">zskiba@hawk.illinoistech.edu</a><SocialLinks /><span className="footer-year">© 2026</span></footer>
+      <footer className="site-footer section-wrap"><div><a className="wordmark" href="#top">NS<span>.</span></a><p>Engineering portfolios should show the decisions behind the result.</p></div><div className="footer-links"><a href="mailto:nskiba@hawk.illinoistech.edu">nskiba@hawk.illinoistech.edu</a><a href="mailto:nskiba@hawk.illinoistech.edu">Resume available on request</a></div><small>© 2026 Nicholas Skiba</small></footer>
     </div>
   )
 }
+
+function SectionHeading({ number, title, id }: { number: string; title: string; id: string }) { return <div className="section-heading"><span>{number}</span><h2 id={id}>{title}</h2></div> }
 
 export default App
