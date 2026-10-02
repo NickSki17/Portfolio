@@ -28,6 +28,7 @@ function DetailPage() {
     {study.metrics && <section className="metric-grid" aria-label="Evidence-backed metrics">{study.metrics.map((metric) => <article className="metric-card" key={metric.label}><span>{metric.label}</span><strong>{metric.value}</strong><small><b>{metric.basis}</b>{metric.note && ` - ${metric.note}`}</small></article>)}</section>}
     <div className="detail-sections">{study.sections.map((section) => <section className="detail-section" key={section.title}><h2>{section.title}</h2><p>{section.content}</p></section>)}</div>
     {isHexapod ? renderHexapodMedia() : study.videoAfterFirstFigure ? <>{renderFigures(figures.slice(0, 1))}{renderVideos()}{renderFigures(figures.slice(1))}</> : <>{renderFigures(figures)}{renderVideos()}</>}
+    {study.supportingWorkUrl && <a className="detail-repository" href={study.supportingWorkUrl} target="_blank" rel="noreferrer">GitHub ↗</a>}
   </DetailShell>
 }
 

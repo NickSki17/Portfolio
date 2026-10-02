@@ -172,6 +172,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   'progress-rail': {
     slug: 'progress-rail', type: 'experience', status: 'completed', title: 'Progress Rail', organization: 'Progress Rail, a Caterpillar Company', date: 'May 2026 – August 2026', role: 'Engine Controls Engineering Intern', summary: 'Repeatable characterization and system validation for locomotive-control pressure sensors, integrating test hardware, instrumentation, and data analysis.', tags: ['Validation', 'Instrumentation', 'Calibration'],
+    supportingWorkUrl: 'https://github.com/NickSki17/Professional/blob/main/Experience/Progress-Rail.md',
     sections: [
       { title: 'Scope', content: 'Work centered on six locomotive-control pressure sensors.' },
       { title: 'Validation work', content: 'Built a repeatable test framework, assembled sensor harnesses, verified continuity, grounding, and pinouts, and integrated pressure calibrators and laboratory instrumentation.' },
@@ -180,6 +181,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   'deep-coat': {
     slug: 'deep-coat', type: 'experience', status: 'completed', title: 'Deep Coat Industries', organization: 'Deep Coat Industries', date: 'May 2025 – August 2025; December 2025 – January 2026', role: 'Engineering Intern', summary: 'Internship work across RF/EMI test-system design, instrumentation, Python data automation, shielding analysis, and fixture/mechanism design and fabrication.', tags: ['RF / EMI', 'Instrumentation', 'Mechanical design'],
+    supportingWorkUrl: 'https://github.com/NickSki17/Professional/blob/main/Experience/Deep-Coat.md',
     metrics: [{ label: 'Measurement range', value: '500 Hz – 6.3 GHz', basis: 'author-reported', note: 'RF/EMI test-system measurements.' }],
     sections: [
       { title: 'RF/EMI test systems', content: 'Designed, built, and validated an RF/EMI test system for physical measurements from 500 Hz to 6.3 GHz, using antennas, a VNA, oscilloscopes, and RF amplifiers.' },
@@ -189,6 +191,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   fsae: {
     slug: 'fsae', type: 'experience', status: 'in-progress', title: 'Formula SAE Chassis Design', organization: 'Illinois Institute of Technology', date: 'August 2026 – present', role: 'Mechanical design contributor', summary: 'Current chassis and monocoque design work for an FSAE program, with rule-driven packaging and structural validation planned.', tags: ['SolidWorks', 'Vehicle structures', 'Packaging'],
+    supportingWorkUrl: 'https://github.com/NickSki17/Professional',
     sections: [
       { title: 'Current work', content: 'Current work includes SolidWorks chassis and monocoque design for the front bulkhead, front hoop, side-impact structure, and driver packaging.' },
       { title: 'Constraints', content: 'The design work follows FSAE rules and the Percy template. These requirements shape structural layout and driver packaging decisions.' },
