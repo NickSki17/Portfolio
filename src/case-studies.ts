@@ -147,6 +147,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     figures: [
       { src: '../assets/arbor-press-p2-p3-cropped.jpg', alt: 'CAD revision sequence showing Arbor Press revisions P2 through P4', caption: 'CAD revision progression; P1 is a provided baseline, and P2–P4 are my revisions.', kind: 'cad' },
       { src: '../assets/arbor-press-p4-cropped.jpg', alt: 'CAD render of the Arbor Press P4 revision', caption: 'P4 revision developed from earlier FEA to reinforce high-stress regions; it was not physically load-tested.', kind: 'cad' },
+      { src: '../assets/arbor-press-fea-p4.jpg', alt: 'Simulated von Mises stress distribution and legend for the Arbor Press P4 revision, with a maximum of 188.7 MPa', caption: 'P4 simulated von Mises stress result from the Arbor Press report.', kind: 'plot' },
+      { src: '../assets/arbor-press-mastercam-toolpath.jpg', alt: 'Mastercam Color Loop toolpath simulation for an Arbor Press machining operation', caption: 'Mastercam Color Loop toolpath simulation from the Arbor Press programming workflow.', kind: 'screenshot' },
     ],
   },
   'robotic-arm': {
