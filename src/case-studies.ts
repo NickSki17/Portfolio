@@ -21,10 +21,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       { src: '../assets/four-bar-trajectory.jpg', alt: 'MATLAB end-effector trajectory plot for the optimized four-bar mechanism', caption: 'Simulated end-effector trajectory from the MATLAB optimization; the target is marked by a cross.', kind: 'plot' },
       { src: '../assets/four-bar-free-body.jpg', alt: 'Free-body diagrams for the four-bar linkage links', caption: 'Calculated free-body diagrams used to reason about link forces and torque.', kind: 'diagram' },
       { src: '../assets/four-bar-arduino-setup.jpg', alt: 'Arduino, IR receiver, and servo setup for the four-bar prototype', caption: 'Physical prototype controller and actuator setup.', kind: 'photo' },
-      { src: '../assets/four-bar-test-sequence.jpg', alt: 'Three photographs showing the four-bar prototype moving through retracted, extending, and charging positions', caption: 'Physical prototype sequence: retracted, extending, and charging positions.', kind: 'photo' },
       { src: '../assets/four-bar-torque-plot.jpg', alt: 'Required servo torque plotted against input crank angle', caption: 'Simulated required servo torque versus input crank angle; the curves remain below the servo rating in the documented analysis.', kind: 'plot' },
     ],
-    videos: [{ src: '../media/four-bar-simulation.mp4', poster: '../assets/four-bar-trajectory.jpg', title: 'Optimized mechanism motion', label: 'Simulation —' }],
+    videos: [
+      { src: '../media/four-bar-simulation.mp4', poster: '../assets/four-bar-trajectory.jpg', title: 'Optimized mechanism motion', label: 'Simulation —' },
+      { src: '../media/four-bar-physical-prototype.mp4', poster: '../assets/four-bar-physical-poster.jpg', title: 'Physical mechanism cycle', label: 'Prototype —' },
+    ],
   },
   hexapod: {
     slug: 'hexapod', type: 'project', status: 'completed', title: 'Bio-Inspired Hexapod', date: 'December 2025', role: 'Solo project', summary: 'A six-legged prototype built around an alternating tripod gait, passive leg mechanics, and open-loop Arduino servo control.', tags: ['Mechatronics', 'Embedded', 'Fabrication'], confidentiality: 'Public project evidence',
@@ -41,10 +43,10 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Engineering limits', content: 'The open-loop design uses simplified calculations for preliminary mass, torque, and static factor of safety rather than measured operating results.' },
     ],
     figures: [
-      { src: '../assets/hexapod-front.jpg', alt: 'Front view of the hexapod robot prototype', caption: 'Allowed project asset: front profile.', kind: 'photo' },
       { src: '../assets/hexapod-body.jpg', alt: 'Hexapod chassis and servo layout', caption: 'Allowed project asset: chassis and servo layout.', kind: 'photo' },
       { src: '../assets/hexapod-wiring.jpg', alt: 'Arduino and power wiring in the hexapod prototype', caption: 'Allowed project asset: electronics and wiring.', kind: 'photo' },
     ],
+    videos: [{ src: '../media/hexapod-walking.mp4', poster: '../assets/hexapod-walking-poster.jpg', title: 'Hexapod walking', label: 'Prototype —' }],
   },
   'sustainable-chair': {
     slug: 'sustainable-chair', type: 'project', status: 'completed', title: 'Sustainable Foam-Core Chair', date: '2025', role: 'Solo project', summary: 'An interlocking foam-core chair designed for lightweight fabrication without adhesives or mechanical fasteners.', tags: ['CAD', 'FEA', 'Testing'], confidentiality: 'Public project evidence',

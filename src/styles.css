@@ -33,7 +33,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
 .project-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
 .project-card, .project-card:nth-child(even) { align-items: stretch; background: #fffdf8; border: 1px solid var(--line); color: var(--ink); display: flex; flex-direction: column; gap: 18px; min-height: 350px; padding: 22px; transition: transform .25s ease, border-color .25s ease; }
 .project-card-top { align-items: center; display: flex; justify-content: space-between; }
-.project-card-media { aspect-ratio: 16 / 8; display: block; object-fit: cover; width: 100%; }
+.project-card-media { aspect-ratio: 16 / 8; display: block; width: 100%; }
+.project-card-media--photo { object-fit: cover; }
+.project-card-media--technical { background: #d9d8d0; object-fit: contain; }
 .project-card:hover { background: #fffdf8; border-color: var(--accent); color: var(--ink); transform: translateY(-3px); }
 .project-card h3 { font-size: clamp(1.15rem, 2vw, 1.6rem); font-weight: 500; letter-spacing: -.05em; line-height: 1.05; margin: 4px 0 12px; max-width: 310px; }
 .project-card p { color: inherit; opacity: .72; font-size: 1rem; margin: 0 0 25px; max-width: 390px; }

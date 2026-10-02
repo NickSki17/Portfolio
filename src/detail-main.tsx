@@ -19,7 +19,7 @@ function DetailPage() {
     {study.metrics && <section className="metric-grid" aria-label="Evidence-backed metrics">{study.metrics.map((metric) => <article className="metric-card" key={metric.label}><span>{metric.label}</span><strong>{metric.value}</strong><small><b>{metric.basis}</b>{metric.note && ` — ${metric.note}`}</small></article>)}</section>}
     <div className="detail-sections">{study.sections.map((section) => <section className="detail-section" key={section.title}><h2>{section.title}</h2><p>{section.content}</p></section>)}</div>
     {study.figures && <section className="figure-grid" aria-label="Project figures">{study.figures.map((figure) => <figure key={figure.src}><img className={`figure-image figure-image--${figure.kind ?? 'photo'}`} src={figure.src} alt={figure.alt} loading="lazy" decoding="async" /><figcaption>{figure.caption}</figcaption></figure>)}</section>}
-    {study.videos && <section className="video-grid" aria-label="Project videos">{study.videos.map((video) => <figure className="video-card" key={video.src}><video controls preload="none" poster={video.poster}><source src={video.src} type="video/mp4" /></video><figcaption><strong>{video.label}</strong> {video.title}</figcaption></figure>)}</section>}
+    {study.videos && <section className="video-grid" aria-label="Project videos">{study.videos.map((video) => <figure className="video-card" key={video.src}><video controls preload="none" poster={video.poster} aria-label={`${video.label} ${video.title}`}><source src={video.src} type="video/mp4" /></video><figcaption><strong>{video.label}</strong> {video.title}</figcaption></figure>)}</section>}
   </DetailShell>
 }
 
