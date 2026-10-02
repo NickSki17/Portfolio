@@ -11,4 +11,6 @@ export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
 
 export function TagList({ items }: { items: string[] }) { return <div className="tag-list">{items.map((item) => <span className="tag" key={item}>{item}</span>)}</div> }
 
-export function DetailShell({ children, title, homeHref = '../index.html' }: { children: ReactNode; title: string; homeHref?: string }) { return <div className="detail-shell"><header className="site-header"><a className="wordmark" href={homeHref}>NS<span>.</span></a><a className="header-contact" href={homeHref}>Back to portfolio <Icon name="arrow" size={15} /></a></header><main className="detail-main section-wrap"><p className="eyebrow">Engineering case study</p><h1>{title}</h1>{children}</main></div> }
+export function DetailShell({ children, title, eyebrow = 'Project', homeHref = '../index.html', backHref, backLabel }: { children: ReactNode; title: string; eyebrow?: string; homeHref?: string; backHref?: string; backLabel?: string }) {
+  return <div className="detail-shell"><header className="site-header"><a className="wordmark" href={homeHref}>NS<span>.</span></a><nav className="detail-navigation" aria-label="Page navigation">{backHref && <a className="header-contact" href={backHref}>{backLabel ?? 'Back'} <Icon name="arrow" size={15} /></a>}<a className="header-contact" href={homeHref}>Back to portfolio <Icon name="arrow" size={15} /></a></nav></header><main className="detail-main section-wrap"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{children}</main></div>
+}

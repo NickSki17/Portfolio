@@ -42,23 +42,21 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Engineering limits', content: 'Mass, torque, and static factor-of-safety values are preliminary calculations rather than measured operating results.' },
     ],
     figures: [
-      { src: '../assets/hexapod-body.jpg', alt: 'Hexapod chassis and servo layout', caption: 'MDF chassis layout with six servo positions.', kind: 'photo' },
-      { src: '../assets/hexapod-wiring.jpg', alt: 'Arduino and power wiring in the hexapod prototype', caption: 'Arduino Uno control and power wiring.', kind: 'photo' },
+      { src: '../assets/hexapod-body.jpg', alt: 'Assembled hexapod prototype with MDF chassis and leg mechanisms', caption: 'Physical chassis and leg assembly; the walking video shows the robot in motion.', kind: 'photo' },
     ],
     videos: [{ src: '../media/hexapod-walking.mp4', poster: '../assets/hexapod-walking-poster.jpg', title: 'Hexapod walking', label: 'Prototype —' }],
   },
   'sustainable-chair': {
     slug: 'sustainable-chair', type: 'project', status: 'completed', title: 'Sustainable Foam-Core Chair', date: '2025', role: 'Solo project', summary: 'An interlocking foam-core chair designed for lightweight fabrication without adhesives or mechanical fasteners.', tags: ['CAD', 'FEA', 'Testing'],
     metrics: [
-      { label: 'Design-load requirement', value: '103 kg', basis: 'requirement', note: 'Separate from the uninstrumented, uncertified load trial.' },
       { label: 'CAD mass', value: '462 g', basis: 'estimated', note: 'CAD/material-density estimate, not a scale measurement.' },
-      { label: 'Incremental human load trial', value: '103 kg observed', basis: 'measured', note: 'Not instrumented or certified.' },
+      { label: 'Professor-performed human load test', value: '103 kg — passed', basis: 'measured', note: 'The chair passed the test; this is not a rated or certified capacity.' },
       { label: 'Failure sequence', value: 'Cracked at 70 kg; observed at 80 kg and 90 kg', basis: 'measured', note: 'Observed during incremental testing.' },
     ],
     sections: [
       { title: 'Constraints', content: 'The chair uses 5 mm foam-core sheets, laser-cut parts, and press-fit slots and tabs. The design avoids external adhesives, mechanical fasteners, and tape.' },
       { title: 'Analysis and iteration', content: 'Autodesk Inventor CAD and preliminary FEA assessed seat and backrest loading and identified stress concentrations. Fit checks and FEA informed small design tweaks before full-scale fabrication. CAD/material-density analysis estimates the chair mass at 462 g.' },
-      { title: 'Physical observation', content: 'The initial 70 kg load cracked the short, thin slats while the main structure remained intact. Similar cracking was observed at 80 kg and 90 kg. A later 103 kg incremental human load trial caused little deformation to the main structure, with a slight bend in one outer leg and additional slat breakage; it was not instrumented or certified.' },
+      { title: 'Physical observation', content: 'The approximately 70 kg load cracked the short, thin slats while the main structure remained intact. Similar cracking was observed at 80 kg and 90 kg. A professor sat on the chair for the 103 kg human load test, which it passed with little main-structure deformation; one outer leg bent slightly and additional slats broke. The test was not instrumented or certified.' },
     ],
     figures: [
       { src: '../assets/chair-before-test.jpg', alt: 'Unloaded foam-core chair prototype before the incremental human load trial', caption: 'Physical prototype before incremental load testing.', kind: 'photo' },
@@ -83,7 +81,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       { src: '../assets/topology-boundary.jpg', alt: 'ANSYS boundary condition setup for the topology optimization bracket', caption: 'Simulated boundary-condition setup for the 150 lbf total-load case.', kind: 'screenshot' },
       { src: '../assets/topology-result.jpg', alt: 'Topology optimization density distribution and reconstructed bracket geometry', caption: 'Simulated topology result and reconstructed parametric geometry.', kind: 'plot' },
       { src: '../assets/topology-stress.jpg', alt: 'Simulated von Mises stress contour on the reconstructed topology bracket', caption: 'Simulated von Mises stress contour; maximum stress is 332.02 psi with a factor of safety of 15.3.', kind: 'plot' },
-      { src: '../assets/topology-convergence.jpg', alt: 'Mesh convergence plots and final finite-element mesh for the topology bracket', caption: 'Simulated mesh-convergence study and final mesh used for verification.', kind: 'plot' },
+      { src: '../assets/topology-convergence.jpg', alt: 'Mesh-convergence graphs of maximum total deformation and maximum equivalent stress versus node count', caption: 'Mesh convergence: maximum total deformation and maximum equivalent stress versus node count.', kind: 'plot' },
     ],
   },
   'bladed-disk-optimization': {
@@ -139,10 +137,10 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
   },
   'robotic-arm': {
-    slug: 'robotic-arm', type: 'project', status: 'in-progress', title: '6-DOF Robotic Arm', date: 'September 2026 – present', role: 'Collaborative project — selected contributions by Nicholas Skiba', summary: 'A collaborative robotics platform where Nicholas contributed embedded diagnostics, serial testing, development-environment documentation, ROS 2 scaffolding, and a reduced simulation.', tags: ['Embedded', 'ROS 2', 'Python'],
+    slug: 'robotic-arm', type: 'project', status: 'in-progress', title: '6-DOF Robotic Arm', date: 'September 2026 – present', role: 'Collaborative project — selected contributions by Nicholas Skiba', summary: 'A collaborative robotics platform with selected contributions in embedded diagnostics, serial testing, development-environment documentation, ROS 2 scaffolding, and reduced simulation.', tags: ['Embedded', 'ROS 2', 'Python'],
     sections: [
       { title: 'Project status', content: 'An early-stage six-degree-of-freedom arm platform with planning complete and simulation beginning; hardware integration and full control remain planned.' },
-      { title: 'Implemented contributions', content: 'Nicholas contributed Teensy 4.1 diagnostics and serial benchmarking through PlatformIO, Python serial tests, Docker/WSL/Dev Container setup documentation, and ROS 2 scaffolding. The implemented reduced simulation is a 2-link/mock-motor model.' },
+      { title: 'Implemented contributions', content: 'My contributions included Teensy 4.1 diagnostics and serial benchmarks through PlatformIO, Python serial tests, Docker/WSL/Dev Container setup documentation, and ROS 2 scaffolding. The implemented reduced simulation is a 2-link/mock-motor model.' },
       { title: 'Planned work', content: 'Full six-joint control, motor firmware, sensor drivers, URDF/Xacro, and six-DOF simulation remain planned.' },
     ],
   },
@@ -155,19 +153,20 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
   },
   'progress-rail': {
-    slug: 'progress-rail', type: 'experience', status: 'completed', title: 'Progress Rail', organization: 'Progress Rail, a Caterpillar Company', date: 'May 2026 – August 2026', role: 'Engine Controls Engineering Intern', summary: 'Pressure-sensor validation and test development for locomotive-control systems, combining repeatable testing, instrumentation, harness checks, and analysis.', tags: ['Validation', 'Instrumentation', 'Calibration'],
+    slug: 'progress-rail', type: 'experience', status: 'completed', title: 'Progress Rail', organization: 'Progress Rail, a Caterpillar Company', date: 'May 2026 – August 2026', role: 'Engine Controls Engineering Intern', summary: 'Repeatable characterization and system validation for locomotive-control pressure sensors, integrating test hardware, instrumentation, and data analysis.', tags: ['Validation', 'Instrumentation', 'Calibration'],
     sections: [
       { title: 'Scope', content: 'Work centered on six locomotive-control pressure sensors.' },
-      { title: 'Validation work', content: 'Built a repeatable pressure-sensor validation framework, assembled sensor harnesses, performed continuity, grounding, and pinout checks, and integrated calibration equipment and laboratory instrumentation.' },
-      { title: 'Analysis tools', content: 'Used Python and Excel for transfer curves, linearity, repeatability, accuracy, operating-range behavior, sensor-to-sensor consistency, regression, calibration, and interpolation. Vector CANape, CAT ET, and dSPACE supported system-level validation.' },
+      { title: 'Validation work', content: 'Built a repeatable test framework, assembled sensor harnesses, verified continuity, grounding, and pinouts, and integrated pressure calibrators and laboratory instrumentation.' },
+      { title: 'Analysis and system validation', content: 'Used Python and Excel to evaluate transfer curves, linearity, accuracy, repeatability, operating range, and sensor-to-sensor consistency through regression, calibration, and interpolation. Vector CANape and CAT ET supported system-level diagnostics and fault-response validation.' },
     ],
   },
   'deep-coat': {
     slug: 'deep-coat', type: 'experience', status: 'completed', title: 'Deep Coat Industries', organization: 'Deep Coat Industries', date: 'May 2025 – August 2025; December 2025 – January 2026', role: 'Engineering Intern', summary: 'Internship work across RF/EMI test-system design, instrumentation, Python data automation, shielding analysis, and fixture/mechanism design and fabrication.', tags: ['RF / EMI', 'Instrumentation', 'Mechanical design'],
     metrics: [{ label: 'Measurement range', value: '500 Hz – 6.3 GHz', basis: 'author-reported', note: 'RF/EMI test-system measurements.' }],
     sections: [
-      { title: 'RF/EMI test systems', content: 'Designed test systems and instrumentation for repeatable RF/EMI measurements from 500 Hz to 6.3 GHz.' },
-      { title: 'Analysis and fabrication', content: 'Applied Python data automation and shielding analysis; designed AutoCAD fixtures and mechanisms and supported fabrication.' },
+      { title: 'RF/EMI test systems', content: 'Designed, built, and validated an RF/EMI test system for physical measurements from 500 Hz to 6.3 GHz, using antennas, a VNA, oscilloscopes, and RF amplifiers.' },
+      { title: 'Computational shielding model', content: 'Developed a Python-based multilayer shielding-effectiveness model spanning approximately 1 Hz to 100 GHz computationally.' },
+      { title: 'Analysis and fabrication', content: 'Automated instrument control and data processing in Python; designed AutoCAD fixtures and mechanisms and supported hands-on fabrication.' },
     ],
   },
   fsae: {

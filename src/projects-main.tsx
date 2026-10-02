@@ -10,12 +10,12 @@ const projects = [
 ]
 
 function ProjectsPage() {
-  return <DetailShell title="Additional Projects" homeHref="./index.html">
+  return <DetailShell title="Additional Projects" eyebrow="Additional Projects" homeHref="./index.html">
     <p className="project-index-intro">A compact index of additional design, analysis, manufacturing, robotics, and dynamics work.</p>
     <section className="project-index-list" aria-label="Additional engineering projects">
       {projects.map((project) => <a className="project-index-item" href={`./projects/${project.slug}.html`} key={project.slug}>
         {project.image && <img className="project-index-media" src={project.image} alt={project.alt} loading="lazy" decoding="async" />}
-        <div className="project-index-copy"><span className="eyebrow">Case study</span><h2>{project.title}</h2><p>{project.summary}</p><TagList items={project.tags} /><span className="project-index-linkline">View case study <Icon name="arrow" size={16} /></span></div>
+        <div className="project-index-copy"><span className="eyebrow">Project</span><h2>{project.title}</h2><p>{project.summary}</p><TagList items={project.tags} /><span className="project-index-linkline">View project <Icon name="arrow" size={16} /></span></div>
       </a>)}
     </section>
   </DetailShell>
