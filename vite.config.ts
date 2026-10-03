@@ -22,6 +22,7 @@ export default defineConfig({
         progressRail: 'experience/progress-rail.html',
         deepCoat: 'experience/deep-coat.html',
         fsae: 'experience/fsae.html',
+        tripleThreatServices: 'experience/triple-threat-services.html',
       },
     },
   },

@@ -8,5 +8,5 @@ export type CaseStudy = { slug: string; type: 'project' | 'experience'; status: 
 
 export const caseStudySlugs = {
   projects: ['four-bar-ev-charging-arm', 'hexapod', 'sustainable-chair', 'topology-optimization', 'bladed-disk-optimization', 'cnc-bracket', 'arbor-press', 'robotic-arm', 'physics-surrogate-optimization'],
-  experience: ['progress-rail', 'deep-coat', 'fsae'],
+  experience: ['progress-rail', 'deep-coat', 'fsae', 'triple-threat-services'],
 } as const

@@ -198,4 +198,13 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Planned validation', content: 'ANSYS structural validation is planned for a future design phase.' },
     ],
   },
+  'triple-threat-services': {
+    slug: 'triple-threat-services', type: 'experience', status: 'in-progress', title: 'Business Owner & Co-Founder', organization: 'Triple Threat Services', date: 'May 2024 – Present', role: 'Business Owner & Co-Founder', summary: 'Co-founded and operate a customer-focused mobile automotive detailing business with my brothers, managing customer relationships, business operations, and service delivery.',
+    repository: 'https://www.triplethreatservices.com/',
+    repositoryLabel: 'Visit Triple Threat Services ↗',
+    tags: ['Business operations', 'Customer service', 'Entrepreneurship'],
+    sections: [
+      { title: 'Business operations', content: 'Involved in customer acquisition, scheduling, marketing, pricing, purchasing, financial tracking, customer communication, and mobile interior and exterior detailing. Helped establish repeatable service procedures while managing day-to-day operations and customer satisfaction.' },
+    ],
+  },
 }
