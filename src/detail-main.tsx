@@ -8,6 +8,8 @@ const study = caseStudies[slug]
 const title = study?.title ?? slug.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 const additionalProjectSlugs = ['cnc-bracket', 'arbor-press', 'robotic-arm', 'physics-surrogate-optimization']
 const isAdditionalProject = additionalProjectSlugs.includes(slug)
+const workUrl = study?.repository ?? study?.supportingWorkUrl
+const workLinkLabel = study?.supportingWorkUrl ? 'GitHub ↗' : study?.repositoryLabel ?? 'GitHub repository ↗'
 
 if (study) {
   document.title = `${study.title} - Nicholas Skiba`
@@ -24,11 +26,10 @@ function DetailPage() {
   const renderHexapodMedia = () => <section className="hexapod-media-grid" aria-label="Hexapod photos and video">{figures.slice(0, 1).map(renderFigure)}{study.videos?.map(renderVideo)}{figures.slice(1).map(renderFigure)}</section>
   const isHexapod = study.slug === 'hexapod'
   return <DetailShell title={study.title} eyebrow={study.type === 'experience' ? 'Engineering Experience' : 'Project'} backHref={isAdditionalProject ? '../projects.html' : undefined} backLabel={isAdditionalProject ? 'Back to Additional Projects' : undefined} centerIntro>
-    <div className="detail-intro"><p>{study.summary}</p><div className="detail-meta"><span className={`status status--${study.status}`}>{study.status.replace('-', ' ')}</span>{study.organization && <span>{study.organization}</span>}{study.date && <span>{study.date}</span>}{study.role && <span>{study.role}</span>}</div>{study.repository && <a className="detail-repository" href={study.repository} target="_blank" rel="noreferrer">{study.repositoryLabel ?? 'GitHub repository ↗'}</a>}</div>
+    <div className="detail-intro"><p>{study.summary}</p><div className="detail-meta"><span className={`status status--${study.status}`}>{study.status.replace('-', ' ')}</span>{study.organization && <span>{study.organization}</span>}{study.date && <span>{study.date}</span>}{study.role && <span>{study.role}</span>}</div>{workUrl && <a className="detail-repository" href={workUrl} target="_blank" rel="noreferrer">{workLinkLabel}</a>}</div>
     {study.metrics && <section className="metric-grid" aria-label="Evidence-backed metrics">{study.metrics.map((metric) => <article className="metric-card" key={metric.label}><span>{metric.label}</span><strong>{metric.value}</strong><small><b>{metric.basis}</b>{metric.note && ` - ${metric.note}`}</small></article>)}</section>}
     <div className="detail-sections">{study.sections.map((section) => <section className="detail-section" key={section.title}><h2>{section.title}</h2><p>{section.content}</p></section>)}</div>
     {isHexapod ? renderHexapodMedia() : study.videoAfterFirstFigure ? <>{renderFigures(figures.slice(0, 1))}{renderVideos()}{renderFigures(figures.slice(1))}</> : <>{renderFigures(figures)}{renderVideos()}</>}
-    {study.supportingWorkUrl && <a className="detail-repository" href={study.supportingWorkUrl} target="_blank" rel="noreferrer">GitHub ↗</a>}
   </DetailShell>
 }
 

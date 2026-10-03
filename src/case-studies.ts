@@ -15,7 +15,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     sections: [
       { title: 'Problem', content: 'The mechanism had to move an end-effector through a 101.6 × 101.6 mm opening and reach a target 152.4 mm away at a 240 mm height inside a 400 × 450 × 500 mm frame.' },
-      { title: 'Approach', content: 'A parameterized MATLAB kinematic model was optimized with fmincon using SQP. The design varied link geometry, placement, orientation, and end-effector length while enforcing geometry, clearance, transmission-angle, and modeled torque constraints.' },
+      { title: 'Approach', content: 'A parameterized MATLAB kinematic model was optimized with fmincon. The design varied link geometry, placement, orientation, and end-effector length while enforcing geometry, clearance, transmission-angle, and modeled torque constraints.' },
       { title: 'Implementation and testing', content: 'The solo prototype used an Hitec HS-425BB servo, Arduino Uno, IR triggering, laser-cut MDF linkage parts, and a foam-core frame. The open-loop controller filters and debounces the IR input before commanding the servo.' },
       { title: 'Results and limits', content: 'The optimized model produced ≤0.05 mm trajectory error; prototype testing reported ±2 mm accuracy across five consecutive cycles. Required torque remained below the servo rating, with approximately 70% torque reduction through linkage optimization (author-reported).' },
     ],
@@ -191,7 +191,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   fsae: {
     slug: 'fsae', type: 'experience', status: 'in-progress', title: 'Formula SAE Chassis Design', organization: 'Illinois Institute of Technology', date: 'August 2026 – present', role: 'Mechanical design contributor', summary: 'Current chassis and monocoque design work for an FSAE program, with rule-driven packaging and structural validation planned.', tags: ['SolidWorks', 'Vehicle structures', 'Packaging'],
-    supportingWorkUrl: 'https://github.com/NickSki17/Professional',
+    supportingWorkUrl: 'https://github.com/NickSki17/Professional/blob/main/Experience/Formula-SAE.md',
     sections: [
       { title: 'Current work', content: 'Current work includes SolidWorks chassis and monocoque design for the front bulkhead, front hoop, side-impact structure, and driver packaging.' },
       { title: 'Constraints', content: 'The design work follows FSAE rules and the Percy template. These requirements shape structural layout and driver packaging decisions.' },
