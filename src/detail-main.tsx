@@ -6,7 +6,7 @@ import './styles.css'
 const slug = window.location.pathname.split('/').pop()?.replace('.html', '') ?? 'case-study'
 const study = caseStudies[slug]
 const title = study?.title ?? slug.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-const additionalProjectSlugs = ['cnc-bracket', 'arbor-press', 'robotic-arm', 'physics-surrogate-optimization']
+const additionalProjectSlugs = ['cnc-bracket', 'arbor-press', 'robotic-arm', 'robotics-design-optimization-rl']
 const isAdditionalProject = additionalProjectSlugs.includes(slug)
 const workUrl = study?.repository ?? study?.supportingWorkUrl
 const workLinkLabel = study?.supportingWorkUrl ? 'GitHub ↗' : study?.repositoryLabel ?? 'GitHub repository ↗'
