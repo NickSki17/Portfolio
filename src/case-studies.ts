@@ -161,15 +161,16 @@ export const caseStudies: Record<string, CaseStudy> = {
       { title: 'Planned work', content: 'Full six-joint control, motor firmware, sensor drivers, URDF/Xacro, and six-DOF simulation remain planned.' },
     ],
   },
-  'physics-surrogate-optimization': {
-    slug: 'physics-surrogate-optimization', type: 'project', status: 'in-progress', title: 'Physics Surrogate + Optimization', date: 'September 2026 – present', summary: 'A computational mechanics scaffold for a 3-DOF mass-spring-damper model, modal analysis, and later surrogate optimization.', tags: ['Python', 'Dynamics', 'Optimization'],
+  'robotics-design-optimization-rl': {
+    slug: 'robotics-design-optimization-rl', type: 'project', status: 'in-progress', title: 'Robotics Design Optimization and Reinforcement Learning', date: 'September 2026 – present', summary: 'A computational engineering pipeline for a 3-DOF rotational-torsional system, numerical simulation, neural-network surrogate modeling, and constrained design optimization.',
+    tags: ['Python', 'Dynamics', 'Optimization'],
     repository: 'https://github.com/NickSki17/Small-Projects-Public/tree/main/Computational-Methods',
     sections: [
-      { title: 'Current status', content: 'Partially implemented. The foundation is a 3-DOF mass-spring-damper formulation with system matrices and modal analysis.' },
-      { title: 'Implemented', content: 'The dynamics and modal modules provide the physical-model foundation. The project is structured around engineering response metrics and validation before higher-level optimization.' },
-      { title: 'Planned work', content: 'Dataset generation, a surrogate MLP, SLSQP design optimization, PPO, PID comparison, and performance results remain planned.' },
+      { title: 'Current status', content: 'The rotational-torsional physics and dataset-generation workflow are implemented, alongside a PyTorch surrogate model and training pipeline. Dataset generation and model evaluation are the current priorities.' },
+      { title: 'Implemented', content: 'The project includes rotational-system dataset generation, a neural-network surrogate with input and output normalization, automated model tests, and a training workflow with early stopping and held-out evaluation. The pipeline is designed to support reproducible response prediction and physics-based validation.' },
+      { title: 'Planned work', content: 'Complete and validate the full dataset, train and evaluate the surrogate, compare network architectures, implement constrained design optimization with validation against the original physics model, and develop a PPO-versus-PID control comparison.' },
     ],
-  },
+  },  
   'progress-rail': {
     slug: 'progress-rail', type: 'experience', status: 'completed', title: 'Progress Rail', organization: 'Progress Rail, a Caterpillar Company', date: 'May 2026 – August 2026', role: 'Engine Controls Engineering Intern', summary: 'Repeatable characterization and system validation for locomotive-control pressure sensors, integrating test hardware, instrumentation, and data analysis.', tags: ['Validation', 'Instrumentation', 'Calibration'],
     supportingWorkUrl: 'https://github.com/NickSki17/Professional/blob/main/Experience/Progress-Rail.md',
