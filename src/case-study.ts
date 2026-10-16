@@ -7,6 +7,6 @@ export type CaseStudySection = { title: string; content: string }
 export type CaseStudy = { slug: string; type: 'project' | 'experience'; status: ProjectStatus; title: string; organization?: string; date?: string; summary: string; role?: string; metrics?: Metric[]; sections: CaseStudySection[]; figures?: Figure[]; videos?: Video[]; videoAfterFirstFigure?: boolean; tags: string[]; repository?: string; repositoryLabel?: string; supportingWorkUrl?: string }
 
 export const caseStudySlugs = {
-  projects: ['four-bar-ev-charging-arm', 'hexapod', 'sustainable-chair', 'topology-optimization', 'bladed-disk-optimization', 'cnc-bracket', 'arbor-press', 'robotic-arm', 'physics-surrogate-optimization'],
+  projects: ['four-bar-ev-charging-arm', 'hexapod', 'sustainable-chair', 'topology-optimization', 'bladed-disk-optimization', 'cnc-bracket', 'arbor-press', 'robotic-arm', 'robotics-design-optimization-rl'],
   experience: ['progress-rail', 'deep-coat', 'fsae', 'triple-threat-services'],
 } as const

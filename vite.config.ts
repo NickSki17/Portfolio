@@ -18,7 +18,7 @@ export default defineConfig({
         cncBracket: 'projects/cnc-bracket.html',
         arborPress: 'projects/arbor-press.html',
         roboticArm: 'projects/robotic-arm.html',
-        physicsSurrogate: 'projects/physics-surrogate-optimization.html',
+        roboticsDesignOptimizationRl: 'projects/robotics-design-optimization-rl.html',
         progressRail: 'experience/progress-rail.html',
         deepCoat: 'experience/deep-coat.html',
         fsae: 'experience/fsae.html',
