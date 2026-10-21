@@ -19,7 +19,7 @@ if (study) {
 function DetailPage() {
   if (!study) return <DetailShell title={title} eyebrow="Project"><p className="detail-placeholder">Project not found.</p></DetailShell>
   const figures = study.figures ?? []
-  const renderFigure = (figure: typeof figures[number]) => <figure key={figure.src}><img className={`figure-image figure-image--${figure.kind ?? 'photo'}`} src={figure.src} alt={figure.alt} loading="lazy" decoding="async" /><figcaption>{figure.caption}</figcaption></figure>
+  const renderFigure = (figure: typeof figures[number]) => <figure className={figure.wide ? 'figure--wide' : undefined} key={figure.src}><img className={`figure-image figure-image--${figure.kind ?? 'photo'}`} src={figure.src} alt={figure.alt} loading="lazy" decoding="async" /><figcaption>{figure.caption}</figcaption></figure>
   const renderFigures = (items: typeof figures) => items.length > 0 && <section className="figure-grid" aria-label="Project figures">{items.map(renderFigure)}</section>
   const renderVideo = (video: NonNullable<typeof study.videos>[number]) => <figure className="video-card" key={video.src}><video controls preload="none" poster={video.poster} aria-label={`${video.label} ${video.title}`}><source src={video.src} type="video/mp4" /></video><figcaption><strong>{video.label}</strong> {video.title}</figcaption></figure>
   const renderVideos = () => study.videos && <section className="video-grid" aria-label="Project videos">{study.videos.map(renderVideo)}</section>

@@ -162,13 +162,24 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
   },
   'robotics-design-optimization-rl': {
-    slug: 'robotics-design-optimization-rl', type: 'project', status: 'in-progress', title: 'Robotics Design Optimization and Reinforcement Learning', date: 'September 2026 – present', summary: 'A computational engineering pipeline for a 3-DOF rotational-torsional system, numerical simulation, neural-network surrogate modeling, and constrained design optimization.',
-    tags: ['Python', 'Dynamics', 'Optimization'],
-    repository: 'https://github.com/NickSki17/Small-Projects-Public/tree/main/Computational-Methods',
+    slug: 'robotics-design-optimization-rl', type: 'project', status: 'in-progress', title: 'Surrogate-Assisted Design Optimization', date: 'September 2026 – present', role: 'Computational mechanics and numerical optimization', summary: 'A constrained design study for a reduced-order 3-DOF rotational-torsional chain, connecting a physics simulation, a neural-network surrogate, and independent candidate verification.',
+    tags: ['Computational mechanics', 'Python', 'Surrogate modeling', 'Constrained optimization'],
+    repository: 'https://github.com/NickSki17/Small-Projects-Public/tree/main/Computational-Methods/Notebooks/robotics-design-optimization-rl',
+    repositoryLabel: 'Project repository ↗',
+    metrics: [
+      { label: 'Selected total inertia', value: '0.03247 kg·m²', basis: 'calculated', note: 'Sum of the three inertias for the selected design.' },
+      { label: 'Reduction vs baseline', value: '63.93%', basis: 'calculated', note: 'Compared with the 0.09000 kg·m² baseline.' },
+      { label: 'Independent physics constraints', value: '7 / 7 passed', basis: 'simulated', note: 'Recomputed for the selected candidate; not hardware validation.' },
+    ],
     sections: [
-      { title: 'Current status', content: 'The rotational-torsional physics and dataset-generation workflow are implemented, alongside a PyTorch surrogate model and training pipeline. Dataset generation and model evaluation are the current priorities.' },
-      { title: 'Implemented', content: 'The project includes rotational-system dataset generation, a neural-network surrogate with input and output normalization, automated model tests, and a training workflow with early stopping and held-out evaluation. The pipeline is designed to support reproducible response prediction and physics-based validation.' },
-      { title: 'Planned work', content: 'Complete and validate the full dataset, train and evaluate the surrogate, compare network architectures, implement constrained design optimization with validation against the original physics model, and develop a PPO-versus-PID control comparison.' },
+      { title: 'Model and objective', content: 'The plant is a reduced-order 3-DOF rotational-torsional chain—not a full rigid-body robot manipulator. The design varies three inertias and three torsional stiffnesses. The current objective minimizes total inertia while stiffness remains bounded but unpriced; that is an explicit formulation assumption, not a claim that stiffness has no engineering cost.' },
+      { title: 'Computational workflow', content: 'A numerical physics model supplies modal-frequency and time-response metrics. A 5,000-design dataset supports a normalized PyTorch surrogate; the selected MLP uses a [512, 512, 512, 256] architecture. Validation-only, target-specific directional error allowances screen designs before the original physics model evaluates candidates independently.' },
+      { title: 'Optimization result', content: 'A ten-start comparison of SLSQP and COBYQA selected SLSQP_start_6 at 0.03246666 kg·m² versus a 0.09000 kg·m² baseline, a 63.93% reduction. The selected solver run terminated successfully, and the candidate passed the calibrated surrogate screen, original design bounds, and all seven independently recomputed physical constraints. This is a local simulation result, not a global-optimality claim.' },
+      { title: 'Reliability and limitations', content: 'The directional calibration uses 750 validation designs, including 75 in its lowest-inertia decile. Its empirical maxima are safeguards, not formal error bounds or guarantees; the held-out test partition is not used for calibration. Time-history peaks are sampled-grid values, and simulation has not been validated against hardware. Reproduction of this saved result requires matching local dataset, checkpoint, and calibration artifacts that are not all included in a plain Git checkout.' },
+      { title: 'Project scope', content: 'The design-optimization workflow is implemented and tested. Reinforcement learning is not implemented: the environment, controllers, and training entry point remain placeholders. A control objective, safety definition, and evaluation baseline must be specified before that work begins.' },
+    ],
+    figures: [
+      { src: '../assets/surrogate-optimization-baseline.png', alt: 'Baseline and selected total inertia, selected design positions within the configured bounds, and seven positive independent-physics margins for SLSQP_start_6.', caption: 'Verified ten-start optimization result. Physics margins are dimensionless and positive for all seven constraints; the plot is simulation evidence, not hardware validation.', kind: 'plot', wide: true },
     ],
   },  
   'progress-rail': {
